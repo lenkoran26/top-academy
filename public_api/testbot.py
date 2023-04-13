@@ -1,6 +1,7 @@
 import requests
 import time
 
+
 API_URL: str = 'https://api.telegram.org/bot'
 BOT_TOKEN: str = '6112641834:AAHx1QXtSKuK4gYdpAwEGuj563HMD9B7PvU'
 TEXT: str = 'Aпдейт!'
