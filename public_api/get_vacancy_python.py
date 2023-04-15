@@ -32,7 +32,7 @@ def get_random_vacancy():
 
     rand_id = ids[randint(0, len(ids) - 1)]
     rand_ids = sample(ids, 3)
-    list_of_data_vacancy: list[dict] = []
+    list_of_data_vacancy: list = [dict]
 
     for id in rand_ids:
         url_rand_vacancies = f'https://api.hh.ru/vacancies/{id}'
