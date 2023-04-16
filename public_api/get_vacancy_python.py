@@ -39,6 +39,7 @@ def get_random_vacancy():
 
     # заходим на страничку каждой вакансии и заносим нужные нам поля в словарь
     for id in rand_ids:
+        #URL с API, выдающем информацию по конкретной вакансии
         url_rand_vacancies = f'https://api.hh.ru/vacancies/{id}'
         resp_vacancies = requests.get(url=url_rand_vacancies, headers=headers).json()
         data_vacancy = {'name': resp_vacancies["name"],
@@ -47,7 +48,8 @@ def get_random_vacancy():
                         'url': resp_vacancies["alternate_url"]
                         }
         # каждый из словарей заносим в список
-        # заносим
+        # заносим именно копию словаря, так как в листе будут ссылки на словарь, а не сам словарь
+        # и если заносить не копию, то все три раза будет меняться один и тот же словарь
         list_of_data_vacancy.append(data_vacancy.copy())
 
 
