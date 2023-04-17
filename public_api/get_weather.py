@@ -29,6 +29,8 @@ def get_weather_spb() -> list:
 
     return weather_day_list
 
+if __name__ == '__main__':
+    get_weather_spb()
 
 # t_night = table_weather_today.find('tr', class_='night').find('td', class_='weather-temperature').find('span').text
 # t_morning = table_weather_today.find('tr', class_='morning').find('td', class_='weather-temperature').find('span').text

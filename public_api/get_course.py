@@ -2,21 +2,26 @@ import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
-ua = UserAgent()
-URL = 'https://www.alta.ru/currency/'
-response = requests.get(URL, headers={'User-agent': ua.random})
+def get_course():
 
-html = response.text
-soup = BeautifulSoup(html, 'html.parser')
+    ua = UserAgent()
+    URL = 'https://www.alta.ru/currency/'
+    response = requests.get(URL, headers={'User-agent': ua.random})
 
-table = soup.find('div', class_='module-tableSort')
-rows = table.findAll('tr')
-my_dict = {}
+    html = response.text
+    soup = BeautifulSoup(html, 'html.parser')
 
-for row in rows:
-    valute = row.find('td', class_='t-left')
-    price = row.find('td', class_='t-right')
-    my_dict[valute] = price
+    table = soup.find('div', class_='module-tableSort')
+    rows = table.findAll('tr')
+    my_dict = {}
 
-for i in my_dict.items():
-    print(i)
+    for row in rows:
+        valute = row.find('td', class_='t-left')
+        price = row.find('td', class_='t-right')
+        my_dict[valute] = price
+
+    for i in my_dict.items():
+        print(i)
+
+if __name__ == '__main__':
+    get_course()

@@ -55,4 +55,5 @@ def get_random_vacancy():
 
     return list_of_data_vacancy
 
-print(get_random_vacancy())
+if __name__ == '__main__':
+    get_random_vacancy()
