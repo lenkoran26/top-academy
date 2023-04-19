@@ -16,12 +16,13 @@ def get_course():
     my_dict = {}
 
     for row in rows:
-        valute = row.find('td', class_='t-left')
-        price = row.find('td', class_='t-right')
-        my_dict[valute] = price
-
-    for i in my_dict.items():
-        print(i)
+        if row.find('td', 't-left') and row.find('td', 't-right'):
+            k_i = row.find('td', 't-left').text.index('\n')
+            k = row.find('td', 't-left').text[:k_i]
+            v = row.find('td', 't-right').text.strip('\n')
+            my_dict[k.strip('\n')] = v
+    return my_dict
 
 if __name__ == '__main__':
-    get_course()
+    for item in get_course().items():
+        print(item)
