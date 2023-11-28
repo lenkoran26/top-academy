@@ -9,6 +9,13 @@ def get_course():
     response = requests.get(URL, headers={'User-agent': ua.random})
 
     html = response.text
+    
+    # with open('course_2.html', 'wb') as file:
+    #     file.write(response.content)
+    
+    with open('course_2.html', 'w') as file:
+        file.write(html)
+
     soup = BeautifulSoup(html, 'html.parser')
 
     table = soup.find('div', class_='module-tableSort')
