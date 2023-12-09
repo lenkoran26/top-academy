@@ -17,7 +17,7 @@ def write_csv(data):
 def main():
 
     for i in range(0, 2):
-        url = 'https://www.liveinternet.ru/rating/ru//today.tsv?page={}'.format(str(i))
+        url = 'https://www.liveinternet.ru/rating/ru/today.tsv?page={}'.format(str(i))
         response = get_html(url)
         data = response.strip().split('\n')[1:]
 
